@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"reflect"
+	"slices"
 )
 
 func main() {
@@ -30,4 +31,8 @@ func Equal(a, b []int) bool {
 
 func EqualWithReflect(a, b []int) bool {
 	return reflect.DeepEqual(a, b)
+}
+
+func EqualWithSlices(a, b []int) bool {
+	return slices.Equal(a, b)
 }

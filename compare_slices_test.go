@@ -18,6 +18,13 @@ func BenchmarkEqualWithReflect4(b *testing.B) {
 	EqualWithReflect(x, y)
 }
 
+func BenchmarkEqualWithSlices4(b *testing.B) {
+	x := []int{1, 2, 3, 4, 5}
+	y := []int{1, 2, 3, 4, 5}
+
+	EqualWithSlices(x, y)
+}
+
 func BenchmarkEqual10000000(b *testing.B) {
 	x := make([]int, 10000000)
 	y := make([]int, 10000000)
@@ -30,6 +37,13 @@ func BenchmarkEqualWithReflect10000000(b *testing.B) {
 	y := make([]int, 10000000)
 
 	EqualWithReflect(x, y)
+}
+
+func BenchmarkEqualWithSlices10000000(b *testing.B) {
+	x := make([]int, 10000000)
+	y := make([]int, 10000000)
+
+	EqualWithSlices(x, y)
 }
 
 func BenchmarkEqualDifferentElements(b *testing.B) {
@@ -50,6 +64,15 @@ func BenchmarkEqualWithReflectDifferentElements(b *testing.B) {
 	EqualWithReflect(x, y)
 }
 
+func BenchmarkEqualWithSlicesDifferentElements(b *testing.B) {
+	x := make([]int, 10000000)
+	y := make([]int, 10000000)
+
+	x[2] = 1
+
+	EqualWithSlices(x, y)
+}
+
 func BenchmarkEqualDifferentLength(b *testing.B) {
 	x := make([]int, 10000000)
 	y := make([]int, 20000000)
@@ -62,4 +85,11 @@ func BenchmarkEqualWithReflectDifferentLength(b *testing.B) {
 	y := make([]int, 20000000)
 
 	EqualWithReflect(x, y)
+}
+
+func BenchmarkEqualWithSlicesDifferentLength(b *testing.B) {
+	x := make([]int, 10000000)
+	y := make([]int, 20000000)
+
+	EqualWithSlices(x, y)
 }
